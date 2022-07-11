@@ -1,9 +1,7 @@
 {
-"update_url": "https://clients2.google.com/service/update2/crx",
-
   "manifest_version": 2,
-  "name": "SessionBox - Multi login to any website",
-  "short_name": "SessionBox",
+  "name": "SessionBox - Unlocked Free",
+  "short_name": "SessionBox Free",
   "version": "1.8.3",
   "minimum_chrome_version": "45",
   "default_locale": "en",

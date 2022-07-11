@@ -49415,7 +49415,7 @@ var SessionRow = /** @class */ (function (_super) {
             nextState.showBlockedSessionDialog !== this.state.showBlockedSessionDialog;
     };
     SessionRow.prototype.openSession = function (sessionId, isLocal, version, url, key, name, color, icon, sharerId, syncedDomains) {
-        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.openedSessionsCount + 1) > 5) {
+        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.openedSessionsCount + 1) > 5000) {
             this.freePlanLimitationsMarketingDialog.show();
             return;
         }
@@ -49589,7 +49589,7 @@ var SessionGroup = /** @class */ (function (_super) {
         BackgroundDispatch("Sessions.ToggleGroup", groupKey);
     };
     SessionGroup.prototype.newSession = function (url) {
-        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.localSessionsCount >= 10 || this.props.openedSessionsCount >= 5)) {
+        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.localSessionsCount >= 10000 || this.props.openedSessionsCount >= 5000)) {
             this.freePlanLimitationsMarketingDialog.show();
             return;
         }
@@ -49601,14 +49601,14 @@ var SessionGroup = /** @class */ (function (_super) {
         }
     };
     SessionGroup.prototype.newTemporarySession = function (url) {
-        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.localSessionsCount >= 10 || this.props.openedSessionsCount >= 5)) {
+        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && (this.props.localSessionsCount >= 10000 || this.props.openedSessionsCount >= 5000)) {
             this.freePlanLimitationsMarketingDialog.show();
             return;
         }
         BackgroundDispatch("Engine.OpenTemporarySession", url);
     };
     SessionGroup.prototype.openEverythingInGroup = function (group) {
-        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && ((this.props.openedSessionsCount + group.rows.length) > 5)) {
+        if (this.props.isFreePlanLimitFeature && !this.props.hasSubscription && ((this.props.openedSessionsCount + group.rows.length) > 5000)) {
             this.freePlanLimitationsMarketingDialog.show();
             return;
         }
@@ -53062,19 +53062,23 @@ var SettingsConnected = connect(function (state) {
         settings: state.settings,
         language: state.language,
         isGuest: state.authentication.isGuest,
-        isSupporter: !!state.authentication.subscriptions['supporter'],
+        // isSupporter: !!state.authentication.subscriptions['supporter'],
+        isSupporter: true,
         isBasic: !!state.authentication.subscriptions['basic'],
         sessionMigration: state.sessions.sessionMigration,
-        isIncognito: !!state.authentication.subscriptions['incognito'],
+        // isIncognito: !!state.authentication.subscriptions['incognito'],
+        isIncognito: true,
         proxyPool: state.proxyPool
     };
 })(SettingsComponent);
 var AccountConnected = connect(function (state, ownProps) {
     return {
         isBasic: !!state.authentication.subscriptions['basic'],
-        isSupporter: !!state.authentication.subscriptions['supporter'],
+        // isSupporter: !!state.authentication.subscriptions['supporter'],
+        isSupporter: true,
         isPremium: !!state.authentication.subscriptions['premium'],
-        isIncognito: !!state.authentication.subscriptions['incognito'],
+        // isIncognito: !!state.authentication.subscriptions['incognito'],
+        isIncognito: true,
         isWorkstation: !!state.authentication.subscriptions['workstation'],
         expiration: state.authentication.subscriptions['supporter'],
         language: state.language,
@@ -53526,7 +53530,7 @@ var SessionList = /** @class */ (function (_super) {
                     react.createElement(action_delete/* default */.Z, null)) }));
         }
         // Create free plan limit reached notification
-        if (!this.props.hasSubscription && this.props.features['freePlanLimitWarn'] && (countLocal >= 10 || this.props.openedSessionsCount >= 5)) {
+        if (!this.props.hasSubscription && this.props.features['freePlanLimitWarn'] && (countLocal >= 10000 || this.props.openedSessionsCount >= 5000)) {
             // let freeLimitWarnSeen = this.messageSeen.bind(this, 'free_plan_limit_reached');
             // let freeLimitWarnClick = this.openMessage.bind(this, 'https://boxlabs.freshdesk.com/a/solutions/articles/80000884001', 'free_plan_limit_reached');
             notifications.push(react.createElement(ListItem.default, { leftAvatar: react.createElement(Avatar.default, { icon: react.createElement(warning/* default */.Z, null), backgroundColor: '#F44336' }), primaryText: 'You have reached free plan limits', secondaryText: 'Click here to learn more', secondaryTextLines: 1, onClick: function () { return BackgroundDispatch("Application.OpenUrl", 'https://boxlabs.freshdesk.com/a/solutions/articles/80000884001'); } }));
@@ -54973,9 +54977,11 @@ var SessionListConnected = connect(function (state, ownProps) {
         email: state.authentication.email,
         uid: state.authentication.uid,
         recent: recentItemsSelector(state),
-        isSupporter: !!state.authentication.subscriptions['supporter'],
+        // isSupporter: !!state.authentication.subscriptions['supporter'],
+        isSupporter: true,
         isBasic: !!state.authentication.subscriptions['supporter'],
-        isIncognito: !!state.authentication.subscriptions['incognito'],
+        // isIncognito: !!state.authentication.subscriptions['incognito'],
+        isIncognito: true,
         onRegistration: ownProps.onRegistration,
         isGuest: state.authentication.isGuest,
         groupNames: groupListSelector(state),
@@ -55026,7 +55032,8 @@ var SessionSettingsConnected = connect(function (state, ownProps) {
         proxyControl: state.engine.proxyControl,
         defaultUrl: state.browser.currentUrl,
         isBasic: !!state.authentication.subscriptions['basic'],
-        isSupporter: !!state.authentication.subscriptions['supporter'],
+        // isSupporter: !!state.authentication.subscriptions['supporter'],
+        isSupporter: true,
         isPremium: !!state.authentication.subscriptions['premium'],
         isOwnSession: isOwn,
         sharerEmail: sharer,
@@ -64090,7 +64097,8 @@ function initViews(store) {
                 enabled: !state.sessions.sessionMigration,
                 showWelcome: state.settings.welcomeScreen,
                 isGuest: state.authentication.isGuest,
-                isSupporter: !!state.authentication.subscriptions['supporter'],
+                // isSupporter: !!state.authentication.subscriptions['supporter'],
+                isSupporter: true,
                 synced: countSyncedSelector(state),
                 accountType: state.authentication.type,
                 onBoardingPhase: state.onBoarding.phase

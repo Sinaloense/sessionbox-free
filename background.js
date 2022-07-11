@@ -38649,8 +38649,8 @@ function BrowserStart() {
             if (!state.authentication.authenticated)
                 return;
             var hasSubscription = Object.keys(state.authentication.subscriptions).length > 0;
-            var islocalSessionsLimitReached = state.sessions.rows.filter(function (s) { return s.isLocal; }).length >= 10;
-            var isOpenedSessionsLimitReached = (Object.keys(state.engine.loadedSessions).length + state.engine.loadingSessions.length + state.sessions.busySessions.length) >= 5;
+            var islocalSessionsLimitReached = state.sessions.rows.filter(function (s) { return s.isLocal; }).length >= 10000;
+            var isOpenedSessionsLimitReached = (Object.keys(state.engine.loadedSessions).length + state.engine.loadingSessions.length + state.sessions.busySessions.length) >= 5000;
             var isFreePlanLimitFeature = state.features['freePlanLimit'];
             switch (command) {
                 case 'new_session':
@@ -38678,8 +38678,8 @@ function BrowserStart() {
         chrome.contextMenus.onClicked.addListener(function (info, tab) {
             var state = getState();
             var hasSubscription = Object.keys(state.authentication.subscriptions).length > 0;
-            var islocalSessionsLimitReached = state.sessions.rows.filter(function (s) { return s.isLocal; }).length >= 10;
-            var isOpenedSessionsLimitReached = (Object.keys(state.engine.loadedSessions).length + state.engine.loadingSessions.length + state.sessions.busySessions.length) >= 5;
+            var islocalSessionsLimitReached = state.sessions.rows.filter(function (s) { return s.isLocal; }).length >= 10000;
+            var isOpenedSessionsLimitReached = (Object.keys(state.engine.loadedSessions).length + state.engine.loadingSessions.length + state.sessions.busySessions.length) >= 5000;
             var isFreePlanLimitFeature = state.features['freePlanLimit'];
             if (isFreePlanLimitFeature && !hasSubscription && (islocalSessionsLimitReached || isOpenedSessionsLimitReached))
                 return;
