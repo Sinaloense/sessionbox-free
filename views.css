@@ -1,0 +1,813 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab&subset=cyrillic,cyrillic-ext,latin-ext);
+.marketing-overlay.marketing-open {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.841176);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    will-change: opacity;
+    transform: translateZ(0px);
+    transition: left 0ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    z-index: 1700;
+}
+
+.marketing-overlay.marketing-open {
+    opacity: 1;
+}
+
+.marketing-box {
+    -webkit-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -moz-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -o-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
+    height: 495px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: -495px;
+    z-index: 1701;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 350px;
+    font-size: 12px;
+}
+
+.marketing-box.marketing-open {
+    bottom: 0;
+}
+
+.marketing-header {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.marketing-close {
+    float: right;
+    position: relative;
+    top: -12px;
+    right: -12px;
+}
+
+.marketing-slider-dots {
+    color: white;
+}
+
+.slick-dots li button:before {
+    color: white !important;
+}
+
+.notification-content {
+    display: none;
+}
+
+.notification-content.marketing-open {
+    display: block;
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  overflow: auto;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+.loginBackground {
+    background-image: url(ab85a5eae42ed373a1a7.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+}
+
+.sessionsBackground {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgb(250, 250, 250);
+    padding-top: 64px;
+    overflow-x: hidden;
+}
+
+.otherBackground {
+    width: 100%;
+    background-color: white;
+    padding-top: 74px;
+    overflow-x: hidden;
+}
+
+.sessionSettingsBackground {
+    width: 100%;
+    background-color: white;
+    padding-top: 64px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+.searchPaper {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 10px;
+    transition: margin 0.3s;
+}
+
+.searchPaper.active {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.forgotPasswordWrapper {
+    margin-top: 10px;
+    cursor: pointer;
+}
+.forgotPasswordLink {
+    color: rgba(0, 0, 0, 0.498039);
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+.searchToolbar {
+    position: fixed;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.searchToolbar.stOpen {
+    bottom: 0;
+}
+
+.guestModeWarning {
+    background-color: #FFF59D;
+    padding: 5px 16px;
+    margin-top: 5px;
+}
+
+.guestModeWarningLink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.notificationWrapper {
+    opacity: 0.0;
+    -webkit-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -moz-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -o-transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
+    margin-bottom: 8px;
+    position: relative;
+    top: -10px;
+}
+
+
+.notificationWrapper.notificationVisible {
+    opacity: 1.0;
+    top: 0px;
+}
+
+.whiteButton {
+    box-shadow: 0 2px 2px 0 rgba(44, 62, 80, 0.14), 0 3px 1px -2px rgba(44, 62, 80, 0.2), 0 1px 5px 0 rgba(44, 62, 80, 0.12);
+    border: none;
+    border-radius: 30px;
+    background: white !important;
+    color: #3C4858 !important;
+    padding: 12px 30px;
+    margin: 10px 1px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    will-change: box-shadow, transform;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.whiteButton:hover {
+    box-shadow: 0 14px 26px -12px rgba(44, 62, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(44, 62, 80, 0.2);
+}
+
+.whiteButton:focus {
+    outline: none !important;
+}
+
+.fadeInAnimation{
+    -webkit-animation: 500ms ease 0s normal forwards 1 fadein;
+    animation: 500ms ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein{
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.offer-badge {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    transform-origin: center center;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background: linear-gradient(133deg, rgba(0,13,110,1) 0%, rgba(106,0,255,1) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+
+}
+
+.offer-badge svg {
+    align-self: center;
+    margin-right: 10px;
+}
+
+.offer-badge svg path {
+    fill: white;
+}
+
+.offer-badge:hover {
+    transform: scale(1.06, 1.06);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.offer-split {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 5px;
+    min-width: 30px;
+}
+
+.offer-last {
+}
+
+.offer-big {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.offer-small {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 10px;
+}
+
+.offer-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.offer-overlay-content {
+    background: white;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    flex: 1;
+    padding: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.offer-overlay-header {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, .85);
+}
+.offer-overlay-content p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, .85);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.offer-bold {
+    font-weight: 600;
+}
+
+.offer-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.offer-row img {
+    margin-right: 10px;
+}
+
+.offer-txt {
+    flex: 1;
+}
+
+.offer-badge-button {
+    margin-top: 6px;
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    transform-origin: center center;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background: linear-gradient(133deg, rgba(0,13,110,1) 0%, rgba(106,0,255,1) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    color: white;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.offer-badge-button:hover {
+    opacity: 0.8;
+}
+
+.offer-button-row {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 1;
+}
+
+.offer-button {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    transform-origin: center center;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background: #d9d9d9;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    color: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.offer-button:hover {
+    opacity: 0.8;
+}
+
+.offer-img {
+    width: 55px;
+}
+
+.color-picker-item {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px 5px 5px 5px;
+    display: inline-block;
+    border-style: solid;
+    border-width: 0px;
+    box-sizing: border-box;
+}
+
+.color-picker-item.selected {
+    border-width: 2px;
+}
+
+.link-like {
+    cursor: pointer;
+}
+
+.session-name {
+    font-size: 30px;
+    border: none;
+    border-bottom: 2px solid gray;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.correct-icon-position {
+    position: relative;
+    left: 8px;
+}
+
+.joyride-overlay {
+    z-index: 1600 !important;
+}
+
+.joyride-overlay .safari {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.5) !important;
+}
+.onboarding-h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 42px;
+    color: rgba(0, 0, 0, 0.870588);
+}
+.onboarding-subtitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.870588);
+}
+
+.onboarding-text {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 42px;
+    color: white;
+}
+
+.onboarding-text span {
+    background-color: rgb(26, 188, 156);
+    color: white;
+}
+
+/* Joyride */
+
+.joyride-beacon {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    padding: 0;
+    height: 36px;
+    position: relative;
+    width: 36px;
+    z-index: 1500;
+}
+
+.joyride-beacon:active, .joyride-beacon:focus, .joyride-beacon:hover {
+    outline: none;
+}
+
+.joyride-beacon__inner {
+    animation: joyride-beacon-inner 1.2s infinite ease-in-out;
+    background-color: #1abc9c;
+    border-radius: 50%;
+    display: block;
+    height: 50%;
+    left: 50%;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.joyride-beacon__outer {
+    animation: joyride-beacon-outer 1.2s infinite ease-in-out;
+    background-color: rgba(26, 188, 156, 0.2);
+    border: 2px solid #1abc9c;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    transform-origin: center;
+    width: 100%;
+}
+
+.joyride-overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1500;
+}
+
+.joyride-hole {
+    border-radius: 4px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+.joyride-tooltip {
+    background-color: #fff;
+    border-radius: 4px;
+    color: #555;
+    cursor: default;
+    filter: drop-shadow(-1px -2px 3px rgba(0, 0, 0, 0.3)) drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.3));
+    opacity: 0;
+    padding: 20px;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    width: 290px;
+    z-index: 1510;
+}
+
+.joyride-tooltip--animate {
+    animation: joyride-tooltip 0.4s forwards;
+    animation-timing-function: cubic-bezier(0, 1.05, 0.55, 1.18);
+}
+
+.joyride-tooltip__triangle {
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.joyride-tooltip.bottom, .joyride-tooltip.bottom-left, .joyride-tooltip.bottom-right {
+    margin-top: 18px;
+}
+
+.joyride-tooltip.bottom .joyride-tooltip__triangle, .joyride-tooltip.bottom-left .joyride-tooltip__triangle, .joyride-tooltip.bottom-right .joyride-tooltip__triangle {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2236px%22%20height%3D%2218px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%28180 8 4%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+    height: 18px;
+    left: 50%;
+    top: -16px;
+    transform: translateX(-50%);
+    width: 36px;
+}
+
+.joyride-tooltip.top, .joyride-tooltip.top-left, .joyride-tooltip.top-right {
+    margin-bottom: 18px;
+}
+
+.joyride-tooltip.top .joyride-tooltip__triangle, .joyride-tooltip.top-left .joyride-tooltip__triangle, .joyride-tooltip.top-right .joyride-tooltip__triangle {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2236px%22%20height%3D%2218px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%280%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+    bottom: -16px;
+    height: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+}
+
+.joyride-tooltip.bottom-left .joyride-tooltip__triangle, .joyride-tooltip.top-left .joyride-tooltip__triangle {
+    left: 3%;
+    transform: translateX(0);
+}
+
+@media screen and (min-width: 480px) {
+    .joyride-tooltip.bottom-left .joyride-tooltip__triangle, .joyride-tooltip.top-left .joyride-tooltip__triangle {
+        left: 2%;
+    }
+}
+
+.joyride-tooltip.bottom-right .joyride-tooltip__triangle, .joyride-tooltip.top-right .joyride-tooltip__triangle {
+    left: auto;
+    right: 3%;
+    transform: translateX(0);
+}
+
+@media screen and (min-width: 480px) {
+    .joyride-tooltip.bottom-right .joyride-tooltip__triangle, .joyride-tooltip.top-right .joyride-tooltip__triangle {
+        right: 2%;
+    }
+}
+
+.joyride-tooltip.left {
+    margin-right: 18px;
+}
+
+.joyride-tooltip.left .joyride-tooltip__triangle {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218px%22%20height%3D%2236px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%28270 8 8%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+    height: 36px;
+    right: -16px;
+    width: 18px;
+}
+
+.joyride-tooltip.right {
+    margin-left: 18px;
+}
+
+.joyride-tooltip.right .joyride-tooltip__triangle {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218px%22%20height%3D%2236px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%2890 4 4%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+    height: 36px;
+    left: -16px;
+    width: 18px;
+}
+
+.joyride-tooltip__close {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    padding: 0;
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2016%2016%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M14.117.323l-6.073%206.075-5.449-6.075c-.431-.431-1.131-.431-1.562%200-.431.431-.431%201.131%200%201.562l5.449%206.075-6.159%206.159c-.431.431-.431%201.134%200%201.562.431.431%201.131.431%201.562%200l6.075-6.073%205.449%206.073c.429.431%201.131.431%201.56%200%20.431-.429.431-1.131%200-1.562l-5.452-6.073%206.159-6.161c.431-.431.431-1.131%200-1.562-.431-.431-1.129-.431-1.56%200z%22%20fill%3D%22rgba%2885, 85, 85, 0.5%29%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 12px;
+    position: absolute;
+    right: 10px;
+    text-decoration: none;
+    top: 10px;
+    width: 12px;
+    z-index: 10;
+    display: block;
+}
+
+.joyride-tooltip__close:active, .joyride-tooltip__close:focus, .joyride-tooltip__close:hover {
+    outline: none;
+}
+
+.joyride-tooltip__close:hover, .joyride-tooltip__close:focus {
+    color: rgba(59, 59, 59, 0.5);
+    outline: none;
+}
+
+.joyride-tooltip__close--header {
+    right: 20px;
+    top: 20px;
+}
+
+.joyride-tooltip__header {
+    border-bottom: 1px solid #1abc9c;
+    color: #555;
+    font-size: 20px;
+    padding-bottom: 6px;
+    padding-right: 18px;
+    position: relative;
+}
+
+.joyride-tooltip__header ~ .joyride-tooltip__main {
+    padding: 12px 0 18px;
+}
+
+.joyride-tooltip__main {
+    font-size: 16px;
+    padding-bottom: 18px;
+    padding-right: 18px;
+}
+
+.joyride-tooltip__footer {
+    text-align: right;
+}
+
+.joyride-tooltip__button {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    padding: 0;
+}
+
+.joyride-tooltip__button:active, .joyride-tooltip__button:focus, .joyride-tooltip__button:hover {
+    outline: none;
+}
+
+.joyride-tooltip__button--primary {
+    background-color: #1abc9c;
+    border-radius: 4px;
+    color: #fff;
+    padding: 6px 12px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.joyride-tooltip__button--primary:active, .joyride-tooltip__button--primary:focus, .joyride-tooltip__button--primary:hover {
+    background-color: #1ed7b2;
+    color: #fff;
+}
+
+.joyride-tooltip__button--secondary {
+    color: #1abc9c;
+    margin-right: 10px;
+}
+
+.joyride-tooltip__button--skip {
+    color: #ccc;
+    float: left;
+    margin-right: 10px;
+}
+
+.joyride-tooltip--standalone .joyride-tooltip__main {
+    padding-bottom: 0;
+}
+
+.joyride-tooltip--standalone .joyride-tooltip__footer {
+    display: none;
+}
+
+@media screen and (min-width: 480px) {
+    .joyride-tooltip {
+        width: 360px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .joyride-tooltip {
+        width: 450px;
+    }
+}
+
+@keyframes joyride-tooltip {
+    0% {
+        transform: scale(0.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: perspective(1px) scale(1);
+    }
+}
+
+@keyframes joyride-beacon-inner {
+    20% {
+        opacity: 0.9;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes joyride-beacon-outer {
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        opacity: 0.7;
+        transform: scale(0.75);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+}

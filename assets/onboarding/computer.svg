@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 327.8 258.4" style="enable-background:new 0 0 327.8 258.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1ABC9C;}
+	.st1{fill:#CDCDCD;}
+	.st2{fill:#E6E6E6;}
+	.st3{fill:#18AD90;}
+</style>
+<g>
+	<g>
+		<g>
+			<g>
+				<path class="st0" d="M9.9,178.8c-2.7,0-5-2.2-5-5V9.9c0-2.7,2.2-5,5-5h307.9c2.7,0,5,2.2,5,5v163.9c0,2.7-2.2,5-5,5H9.9z"/>
+				<path class="st1" d="M327.8,207.3c0,3.1-2.5,5.7-5.7,5.7H5.7c-3.1,0-5.7-2.5-5.7-5.7v-28.5c0-3.1,2.5-5.7,5.7-5.7h316.5
+					c3.1,0,5.7,2.5,5.7,5.7V207.3z"/>
+			</g>
+			<path class="st2" d="M317.9,9.9v163.9H9.9V9.9H317.9L317.9,9.9z M317.9,0L9.9,0C4.5,0,0,4.5,0,9.9v173.8h327.8V9.9
+				C327.8,4.5,323.4,0,317.9,0L317.9,0z"/>
+		</g>
+		<polygon class="st2" points="209.8,248.2 123.4,248.2 135.4,212.7 197.8,212.7 		"/>
+		<path class="st1" d="M218.3,246.7l-105.9,0c-0.4,0-0.8,0.2-1.1,0.4c-0.3,0.3-0.4,0.7-0.4,1.1v8.6c0,0.8,0.7,1.5,1.5,1.5l105.9,0
+			c0.4,0,0.8-0.2,1.1-0.4c0.3-0.3,0.4-0.7,0.4-1.1v-8.6C219.8,247.4,219.2,246.7,218.3,246.7z"/>
+	</g>
+</g>
+<polyline class="st3" points="153.6,173.7 317.6,173.7 317.6,9.7 "/>
+</svg>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto</title>
+    <script src="forge.min.js"></script>
+    <script>
+        var Script;
+        (function (Script) {
+            var Encryption;
+            (function (Encryption) {
+                var EncodedData = (function () {
+                    function EncodedData(data, iv) {
+                        this.data = data;
+                        this.iv = iv;
+                    }
+                    EncodedData.prototype.toString = function () {
+                        return JSON.stringify({ d: this.data, i: this.iv });
+                    };
+                    EncodedData.FromString = function (str) {
+                        var data = JSON.parse(str);
+                        return new EncodedData(data.d, data.i);
+                    };
+                    return EncodedData;
+                }());
+                function Encrypt(data, key) {
+                    var iv = forge.random.getBytesSync(16);
+                    var cipher = forge.cipher.createCipher('AES-CBC', key);
+                    cipher.start({ iv: iv });
+                    cipher.update(forge.util.createBuffer(data));
+                    cipher.finish();
+                    return new EncodedData(cipher.output.toHex(), forge.util.bytesToHex(iv)).toString();
+                }
+                Encryption.Encrypt = Encrypt;
+                function Decrypt(data, key) {
+                    var encodedData = EncodedData.FromString(data);
+                    var decipher = forge.cipher.createDecipher('AES-CBC', key);
+                    decipher.start({ iv: forge.util.hexToBytes(encodedData.iv) });
+                    decipher.update(forge.util.createBuffer(forge.util.hexToBytes(encodedData.data)));
+                    decipher.finish();
+                    return decipher.output.getBytes();
+                }
+                Encryption.Decrypt = Decrypt;
+                function EncryptRSA(data, pubKey) {
+                    //Create rsa public key
+                    var baseKey = JSON.parse(pubKey);
+                    var rsaKey = forge.pki.publicKeyFromPem(baseKey);
+                    return rsaKey.encrypt(data, 'RSA-OAEP', {
+                        md: forge.md.sha256.create()
+                    });
+                }
+                Encryption.EncryptRSA = EncryptRSA;
+                function DecryptRSA(data, pvtKey) {
+                    //Create rsa private key
+                    var baseKey = JSON.parse(pvtKey);
+                    var rsaKey = forge.pki.privateKeyFromPem(baseKey);
+                    //noinspection TypeScriptValidateJSTypes
+                    return rsaKey.decrypt(data, 'RSA-OAEP', {
+                        md: forge.md.sha256.create()
+                    });
+                }
+                Encryption.DecryptRSA = DecryptRSA;
+            })(Encryption = Script.Encryption || (Script.Encryption = {}));
+        })(Script || (Script = {}));
+
+        var Crypto = {
+            hashString: function (str) {
+                var md = forge.md.sha512.create();
+                md.update(str);
+                return md.digest().toHex();
+            },
+            createDerivedKey: function (str, saltHex) {
+                var salt = forge.util.hexToBytes(saltHex);
+                return forge.pkcs5.pbkdf2(str, salt, 4096, 16);
+            },
+            decrypt: function (data, key) {
+                return Script.Encryption.Decrypt(data, key);
+            },
+            encrypt: function (data, key) {
+                return Script.Encryption.Encrypt(data, key);
+            },
+            decryptRSA: function (data, key) {
+                return Script.Encryption.DecryptRSA(data, key);
+            },
+            encryptRSA: function (data, key) {
+                return Script.Encryption.EncryptRSA(data, key);
+            }
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
